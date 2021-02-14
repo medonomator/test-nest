@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>цитаты великих людей</title>
+  {{>head}}
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="wrapper">
+    {{>header}}
+    <h1>
+      {{#if mainPage.headerH1}}
+      {{mainPage.headerH1}}
+      {{else}}
+      Личностная трансформация
+      {{/if}}
+    </h1>
+
+    <div class="header-text">
+      <p>
+        Если ты жаждешь глубинной трансформации, этот ресурс поможет тебе. Все что тебе нужно это ежедневно заходить на ресурс и читать афоризмы в течении хотя бы пяти минут. Будут происходить микро-озарения что поведет к транформации личности, посещению более светлых мыслей. А как известно что мыслим то чувствуем, что чувствует то и проживаем. Читай, размышляй и используй то, что тебе подойдет. Удачи!
+      </p>
+    </div>
+
+    <section class="aphorisms-container aphorisms-container-main">
+      {{!-- <h2>Афоризмы</h2> --}}
+      {{#each aphorisms as |item index| }}
+
+      <div class="aphorisms-item">
+        <div class="aphorisms-tags">
+          {{#each this.tags}}
+          <span>{{this.name}}</span>
+          {{/each}}
+        </div>
+        <div class="aphorisms-item-body">
+          <p>{{this.body}}</p>
+        </div>
+        <div class="aphorisms-item-bottom">
+          <div class="aphorisms-authors">
+            <span>{{this.author}}</span>
+          </div>
+          <div class="aphorisms-icons">
+            <i name={{index}} id="fa-clone" class="fa fa-clone" aria-hidden="true"></i>
+            <i name={{index}} id="fa-share" class="fa fa-share-alt" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+      <div class="more-button-container">
+        <a href="/aphorisms" type="button" class="button more-button">Больше...</a>
+      </div>
+    </section>
+  </div>
+  {{>footer}}
+</body>
+
+</html>

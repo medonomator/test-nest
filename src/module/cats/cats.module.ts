@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { CatsController } from './cats.controller';
 import { CatsService } from './cats.service';
-import { catsProviders } from '../database/cats.providers';
-import { DatabaseModule } from '../database/database.module';
+import { catsProviders } from '../../database/cats.providers';
+import { DatabaseModule } from '../../database/database.module';
 
 @Module({
   imports: [DatabaseModule],

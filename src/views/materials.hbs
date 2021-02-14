@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>цитаты великих людей</title>
+  {{>head}}
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="wrapper">
+    {{>header}}
+
+    <h1>
+      Только лучшее
+    </h1>
+
+    <div class="header-text">
+      <p>
+        Здесь собираются разные полезные материалы и одни из самых сильных направлений, которые действительно
+        трансформируют.
+      </p>
+    </div>
+
+    <div class="material-page">
+      <div class="top-arrow">
+        <img src="{{path}}/img/scrollToTop.png" alt="alt">
+      </div>
+      <section class="aphorisms-container">
+
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        {{#each materials as |item index| }}
+        <div class="aphorisms-item">
+          <div class="aphorisms-item-name">{{this.name}}</div>
+          <div class="aphorisms-tags">
+            {{#each this.tags}}
+            <span>{{this.name}}</span>
+            {{/each}}
+          </div>
+          <div class="aphorisms-item-body">{{this.description}}</div>
+
+          <div class="aphorisms-item-bottom">
+
+            <div class="left-links">
+              {{#if this.websiteUrl}}
+              <a class="aphorisms-item-websiteurl" target="_blank" href="{{this.websiteUrl}}">Сайт</a>
+              {{/if}}
+
+              {{#if this.audiobooks}}
+              <a class="aphorisms-item-audiobooks" target="_blank" href="{{this.audiobooks}}">Аудиокниги</a>
+              {{/if}}
+
+              {{#if this.books}}
+              <a class="aphorisms-item-books" target="_blank" href="{{this.books}}">Книги</a>
+              {{/if}}
+
+              {{#if this.youtubeUrl}}
+              <a class="aphorisms-item-youtubeurl" target="_blank" href="{{this.youtubeUrl}}">
+                <i id="fa-share" class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+              {{/if}}
+            </div>
+
+            <div class="aphorisms-icons">
+
+              <div class="share-buttons">
+                <i onclick="Share.vkontakte('http://spiritual-evolution.ru/material/{{this._id}}','Хороший Афоризм')"
+                  class="fa fa-vk" aria-hidden="true"></i>
+                <i onclick="Share.whatsapp('http://spiritual-evolution.ru/material/{{this._id}}','Хороший Афоризм')"
+                  class="fa fa-whatsapp" aria-hidden="true"></i>
+                <i onclick="Share.telegram('http://spiritual-evolution.ru/material/{{this._id}}','Хороший Афоризм')"
+                  class="fa fa-telegram" aria-hidden="true"></i>
+              </div>
+
+              <div></div>
+
+              <i id="fa-share" class="fa fa-share-alt" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </section>
+    </div>
+  </div>
+  {{>footer}}
+</body>
+
+</html>

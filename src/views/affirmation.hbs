@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>цитаты великих людей</title>
+  {{>head}}
+</head>
+
+
+<body>
+  <div class="bg"></div>
+  <div class="wrapper">
+    {{>header}}
+
+    <h1>
+      {{#if affirmationPage.headerH1}}
+      {{affirmationPage.headerH1}}
+      {{else}}
+      В разработке...
+      {{/if}}
+    </h1>
+
+
+    <div class="header-text">
+      <p>
+        {{#if affirmationPage.headerText}}
+        {{affirmationPage.headerText}}
+        {{else}}
+        {{/if}}
+      </p>
+    </div>
+  </div>
+  {{>footer}}
+</body>
+
+</html>

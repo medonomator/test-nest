@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
 import { CreateCatDto } from './create-cat.dto';
-import { Roles } from '../decorators/roles.decorator';
-import { RolesGuard } from '../gurds/roles.guard';
+import { Roles } from '../../decorators/roles.decorator';
+import { RolesGuard } from '../../gurds/roles.guard';
 import { CatsService } from './cats.service';
 
 @Roles('admin')

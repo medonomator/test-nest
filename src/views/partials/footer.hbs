@@ -1,0 +1,60 @@
+<footer class="footer">
+  <div class="wrapper">
+
+    <div class="contacts">
+      <a href="https://vk.com/medonomator">
+        <i class="fa fa-vk" aria-hidden="true"></i>
+      </a>
+      <a href="tg://medonomator">
+        <i class="fa fa-telegram" aria-hidden="true"></i>
+      </a>
+      <a href="https://github.com/medonomator/insight">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div class="subscribe">
+      <p>Подписаться на новости</p>
+      <p class="error-element"></p>
+      <form  method="POST" >
+        <input class="subscribe-input" name="email" type="email" placeholder="Ваш email">
+        <input class="subscribe-button" type="button" value="Подписаться">
+      </form>
+
+    </div>
+
+    <div class="footer-end-block">
+      {{!-- <a href="/development-plan">План развития проекта</a>  --}}
+      <a class="support-project" href="/contacts">Поддержать проект</a>
+    </div>
+  </div>
+</footer>
+
+<script src="{{path}}js/common.js"></script>
+<script type="text/javascript">
+  Share = {
+    vkontakte: function (purl, ptitle, pimg, text) {
+      url = 'http://vkontakte.ru/share.php?';
+      url += 'url=' + encodeURIComponent(purl);
+      url += '&title=' + encodeURIComponent(ptitle);
+      url += '&description=' + encodeURIComponent(text);
+      url += '&image=' + encodeURIComponent(pimg);
+      url += '&noparse=true';
+      Share.popup(url);
+    },
+    telegram: function (purl, ptitle, pimg, text) {
+      url = 'tg://msg?text=';
+      url += encodeURIComponent(purl);
+      Share.popup(url);
+    },
+    whatsapp: function (purl, ptitle, pimg, text) {
+      url = 'whatsapp://send?text=';
+      url += encodeURIComponent(purl);
+      Share.popup(url);
+    },
+    popup: function (url) {
+      window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+    }
+  };
+
+</script>
